@@ -14,6 +14,14 @@ import me.sparklearts.capecore.utils.CapeManager;
 
 import javax.annotation.Nullable;
 
+/**
+ * A Mixin class that hooks into the {@code AbstractClientPlayer} class to modify
+ * behavior related to cape textures.
+ * <p>
+ * This class specifically allows the modification of the result of the
+ * {@code getCloakTextureLocation} method to provide custom cape textures based
+ * on the associated player's name and their cape availability in the {@code CapeManager}.
+ */
 @Mixin(AbstractClientPlayer.class)
 public abstract class AbstractClientPlayerMixin {
 
@@ -21,6 +29,13 @@ public abstract class AbstractClientPlayerMixin {
     @Nullable
     protected abstract PlayerInfo getPlayerInfo();
 
+    /**
+     * Modifies the return value of the {@code getCloakTextureLocation} method to provide
+     * a custom cloak texture for players who have cape data in the {@code CapeManager}.
+     *
+     * @param cir A {@code CallbackInfoReturnable<ResourceLocation>} object that allows modifying
+     *            the return value of the targeted method.
+     */
     @Inject(method = "getCloakTextureLocation", at = @At("RETURN"), cancellable = true)
     public void getCloakTextureLocation(CallbackInfoReturnable<ResourceLocation> cir) {
         PlayerInfo playerInfo = this.getPlayerInfo();

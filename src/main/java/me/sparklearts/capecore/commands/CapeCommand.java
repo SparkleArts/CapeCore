@@ -17,7 +17,7 @@ import java.util.Objects;
  * The CapeCommand class provides a set of commands to manage player capes
  * on a Minecraft server. It allows server operators to set, remove, check,
  * or retrieve capes for players.
- *
+ * <p>
  * Commands managed by this class require a permission level of 2 (OP level 2).
  */
 public class CapeCommand {
