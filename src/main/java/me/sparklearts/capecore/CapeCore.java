@@ -88,7 +88,13 @@ public class CapeCore {
         LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
     }
 
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
+    /**
+     * Handles the ServerStartingEvent and performs actions during the server startup phase.
+     * This method is triggered when the server is starting.
+     *
+     * @param event The ServerStartingEvent instance that provides context and allows
+     *              interaction with the server as it starts.
+     */
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
         // Do something when the server starts
