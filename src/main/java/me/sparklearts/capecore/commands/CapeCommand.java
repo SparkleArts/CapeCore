@@ -11,8 +11,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 
-import java.util.Objects;
-
 /**
  * The CapeCommand class provides a set of commands to manage player capes
  * on a Minecraft server. It allows server operators to set, remove, check,
@@ -24,6 +22,13 @@ public class CapeCommand {
     private static final int PERMISSION_LEVEL = 2;
     private static final String PLAYER_NAME_ARG = "playerName";
     private static final String CAPE_PATH_ARG = "capePath";
+    /**
+     * Registers the "cape" command and its subcommands to the provided command dispatcher.
+     * This command allows the management of player capes, including setting, removing,
+     * checking, and retrieving cape details for specific players.
+     *
+     * @param dispatcher The command dispatcher to which the "cape" command will be registered.
+     */
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(Commands.literal("cape")
                 .requires(source -> source.hasPermission(PERMISSION_LEVEL)) // Requires OP level 2

@@ -25,6 +25,14 @@ import javax.annotation.Nullable;
 @Mixin(AbstractClientPlayer.class)
 public abstract class AbstractClientPlayerMixin {
 
+    /**
+     * Retrieves the PlayerInfo object associated with the current player.
+     * This object provides details about the player's profile, including their
+     * username, UUID, and other metadata.
+     *
+     * @return The PlayerInfo object for the current player, or null if no PlayerInfo
+     *         is available.
+     */
     @Shadow
     @Nullable
     protected abstract PlayerInfo getPlayerInfo();
